@@ -11,15 +11,6 @@
             <input matInput  type="email" placeholder="Enter Email" formControlName="email">
             <mat-error *ngIf="formdata.controls['email'].invalid && formdata.controls['email'].touched">Email is required and must be a valid email</mat-error>
         </mat-form-field>
-        
-            <!--<mat-form-field>
-                <mat-label>Who or what was the reason why you attended the seminar?</mat-label>
-                <mat-select  formControlName = "reasonAttend">
-                    <mat-option value="teacher">My Teacher</mat-option>
-                    <mat-option value="friends">My Friends</mat-option>
-                    <mat-option value="FB Post">Facebook Post</mat-option>
-                </mat-select>
-              </mat-form-field>-->
 
               <mat-form-field>
                 <mat-label>Who or what was the reason why you attended the seminar?</mat-label>
@@ -37,7 +28,6 @@
                 <p><mat-checkbox formControlName="Lesson2">Lesson 2</mat-checkbox></p>
                 <p><mat-checkbox formControlName="Lesson3">Lesson 3</mat-checkbox></p>
               </section>
-              
 
         <div class="slider-group">
             <label class="slider-label">Kindly rate the overall seminar: {{formdata.get('satisfactionLevel')?.value}}</label>
@@ -50,8 +40,8 @@
                 Can you say you are satisfied with the whole seminar?
             </label>
             <mat-radio-group formControlName="overSatis" class="overSatis-radio-group">
-                <mat-radio-button value="yes">Yes</mat-radio-button>
-                <mat-radio-button value="no">No</mat-radio-button>
+                <mat-radio-button value="Satisfied">Yes</mat-radio-button>
+                <mat-radio-button value="Not Satisfied">No</mat-radio-button>
             </mat-radio-group>
         </div>
         <mat-form-field appearance="fill">
@@ -59,40 +49,23 @@
             </mat-label>
             <textarea matInput cdkAutosizeMinRows="1"
             cdkAutosizeMaxRows="10" placeholder="Your Message or any suggestions" formControlName="message"></textarea>
-        </mat-form-field>
-        <!--<mat-form-field appearance="fill">
-            <mat-label>Birth Date</mat-label>
-            <input matInput [matDatepicker]="picker" placeholder="Select a Date" formControlName="birthDate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="formdata.get('birthDate')?.hasError('required')">Birth date is required</mat-error>
-        </mat-form-field> -->
-
-        <!--<section class="example-section">
-            <mat-slide-toggle
-                class="example-margin"
-                [checked]="checked"
-                [disabled]="disabled">
-              Slide me!
-            </mat-slide-toggle>
-          </section>-->
-
-        
+        </mat-form-field>        
 
         <button mat-raised-button color="primary" type="submit" [disabled]="!formdata.valid">Submit</button>
     </form>
 
     <div *ngIf = "submitted">
+
+        
         <br>
         You have entered: <br>
         Username: {{fullName}}<br>
         Email: {{email}}<br>
         Reason why you attended: {{reasonAttend}}<br>
         <section class="example-section" [formGroup]="faveEvent">
-            <p>You chose:</p>
+            <p>Favorite parts of the event:</p>
             {{faveEvent.value | json}}
           </section>
-        Favorite parts of the event: {{faveEvent}}<br>
         Rate of the overall seminar: {{satisfactionLevel}}<br>
         Overall Satisfaction: {{overSatis}}<br>
         Message: {{message}}<br>
